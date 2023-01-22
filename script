@@ -1,0 +1,30 @@
+--[[
+    Please feel free to vouch for us!
+    Scripted By: xXVenomouzIncXx
+    Please don't take credit for my script,
+    You new users!
+]]
+
+local Player = game.Players.LocalPlayer
+local Mouse = Player:GetMouse()
+
+function FireKnife()
+    local GetCurrentKnife = Player.Character:GetChildren()
+    for i=1, #GetCurrentKnife do
+        if GetCurrentKnife[i].ClassName == "Tool" then
+            game.ReplicatedStorage.forhackers:InvokeServer(
+                "throw",
+                GetCurrentKnife[i].Name,
+                CFrame.new(Mouse.Hit.p)
+            )
+        end
+    end
+end
+
+Mouse.Button1Down:connect(function()
+FireKnife()
+end)
+
+Mouse.Button1Up:connect(function()
+FireKnife()
+end)
